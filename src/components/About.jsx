@@ -1,28 +1,39 @@
-import React from 'react'
+import { motion } from "framer-motion";
 
-export const About = () => {
+export function About() {
   return (
-    <div className="min-h-screen min-w-full  flex items-center justify-center overflow-y-hidden relative bg-black ">
+    <section
+      id="about"
+      className="relative flex min-h-screen min-w-full items-center justify-center overflow-y-hidden bg-black"
+    >
+      <motion.h2
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.6 }}
+        className="absolute bottom-[15%] left-[10%] pb-4 text-6xl md:text-8xl font-black text-zinc-800/50"
+      >
+        ABOUT
+      </motion.h2>
 
-        <div className="text-5xl font-bold pb-4 absolute bottom-[15%] left-[10%]"> ABOUT </div>
-        <div className="w-8/12 text-1xl -translate-y-[40%]">
-            <i>
-            I am a self learning, smartworking programmer proficient with programming languages like C++ , Javascript , basics of Java & python having a strong understanding of the key concepts of programming like OOPs , Design Patterns , Algorithms , Data_Structures etc.
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="z-10 w-10/12 md:w-8/12 -translate-y-[20%] text-lg leading-relaxed md:text-2xl text-zinc-300"
+      >
+        <p className="italic mb-6">
+          I am a self-learning and disciplined developer with strong fundamentals in programming, OOP,
+          algorithms, design patterns, and data structures.
+        </p>
 
-           <br />
-           <br />
-    
-            Gagan is a developer, he is a Fullstack Web developer. In the frontend he know Html, Css,Tailwind , Bootstrap, Javascript, React js, and in backend, he know Node js, Express js, I use MongoDb for database management. he is familiar with version control systems like Git, Github. he also have a Good Hand Over Data Structures & Algorithms and still learning.
-            </i>
-
-           
-            
-            </div>
-
-       
-
-        
-    </div>
-  )
+        <p className="italic">
+          I build full-stack web apps using HTML, CSS, Tailwind, JavaScript, React, Node.js, Express,
+          and MongoDB. I am comfortable with Git/GitHub workflows and continuously improve through
+          real project delivery.
+        </p>
+      </motion.div>
+    </section>
+  );
 }
-

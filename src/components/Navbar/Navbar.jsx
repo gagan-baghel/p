@@ -1,31 +1,55 @@
-import {useState} from 'react'
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ImCross } from "react-icons/im";
 
-import { GoHomeFill } from "react-icons/go";
-import { FaAddressBook } from "react-icons/fa";
-import { FaLaptopCode } from "react-icons/fa";
-import { FaFolderOpen } from "react-icons/fa";
+export function Navbar({ sections, isOpen, onClose, onSelect }) {
+  const navRef = useRef(null);
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.to(navRef.current, {
+        duration: 0.45,
+        x: isOpen ? 0 : "-100%",
+        ease: "power3.out",
+      });
 
-export const Navbar = () => {
+      if (isOpen) {
+        gsap.fromTo(
+          ".nav-item",
+          { x: -30, opacity: 0 },
+          { x: 0, opacity: 1, stagger: 0.08, duration: 0.25 }
+        );
+      }
+    }, navRef);
 
- 
-  return (<nav className="flex justify-between items-center flex-col border border-1 border-white rounded-xl fixed p-6 w-[30px] space-y-4 top-[50%] -translate-y-[50%] left-12 z-50 text-2xl bg-black">
+    return () => ctx.revert();
+  }, [isOpen]);
 
-        <div className=" p-3 rounded-full ">
-            <GoHomeFill />
-        </div>
+  return (
+    <nav
+      ref={navRef}
+      className="absolute z-40 flex h-screen w-full -translate-x-full flex-col items-center space-y-10 bg-black/65 py-[12%] font-bold backdrop-blur-md md:w-[40%]"
+      aria-label="Primary"
+    >
+      <button
+        type="button"
+        onClick={onClose}
+        className="nav-item rounded-full border border-zinc-500 p-3"
+        aria-label="Close navigation"
+      >
+        <ImCross />
+      </button>
 
-        <div className=" p-3 rounded-full ">
-        <FaFolderOpen />
-        </div>
-
-        <div className=" p-3 rounded-full ">
-        <FaLaptopCode />
-        </div>
-
-        <div className=" p-3 rounded-full ">
-        <FaAddressBook/>
-        </div>
-
-    </nav>)
+      {sections.map((section) => (
+        <button
+          key={section.id}
+          type="button"
+          onClick={() => onSelect(section.id)}
+          className="nav-item text-4xl transition-colors hover:text-white"
+        >
+          {section.label}
+        </button>
+      ))}
+    </nav>
+  );
 }
