@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { AuroraBackground } from "./ui/aurora-background";
 
 export function Hero() {
   const containerVariants = {
@@ -6,46 +7,49 @@ export function Hero() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.25,
       },
     },
   };
 
+  // Upgraded blur-fade-up animation for the text
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 40, filter: "blur(10px)" },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+      filter: "blur(0px)",
+      transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] },
     },
   };
 
   return (
-    <section
-      id="home"
-      className="relative flex min-h-screen min-w-full items-center justify-center overflow-y-hidden bg-black"
-    >
+    <AuroraBackground className="h-screen w-[100vw] justify-center overflow-hidden">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="z-20 w-[600px] -translate-x-12 -translate-y-12 px-8 md:px-0"
+        className="relative z-20 flex flex-col items-center justify-center -translate-x-12 -translate-y-12 px-8 text-center md:px-0"
       >
-        <motion.p variants={itemVariants} className="mb-2 text-xl font-medium tracking-wide text-zinc-500">
-          Hi, my name is
-        </motion.p>
-        <motion.h1 variants={itemVariants} className="max-w-4xl">
-          <span className="block pb-2 text-[5rem] font-black leading-none tracking-tighter text-white md:text-[7rem]">
+        <motion.div variants={itemVariants} className="mb-4 inline-block rounded-full border border-white/10 bg-white/5 px-6 py-2 backdrop-blur-md">
+          <p className="text-sm font-semibold tracking-widest text-zinc-300 uppercase">
+            Hi, my name is
+          </p>
+        </motion.div>
+
+        <motion.h1 variants={itemVariants} className="max-w-5xl">
+          <span className="block pb-2 text-[6rem] font-black leading-none tracking-tighter text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] md:text-[9rem]">
             Gagan Baghel
           </span>
-          <span className="block pb-6 text-3xl font-bold tracking-tight bg-gradient-to-r from-zinc-100 via-zinc-400 to-zinc-600 bg-clip-text text-transparent md:text-5xl">
+          <span className="block pb-6 text-2xl font-bold tracking-widest text-zinc-300 md:text-4xl uppercase">
             Freelance Web Developer & Designer
           </span>
         </motion.h1>
-        <motion.p variants={itemVariants} className="max-w-xl text-xl font-light leading-relaxed text-zinc-400">
-          Crafting engaging, world-class web experiences with React and UI/UX expertise.
+
+        <motion.p variants={itemVariants} className="max-w-2xl text-lg font-light leading-relaxed text-zinc-400 md:text-xl">
+          Crafting engaging, world-class web experiences featuring heavy 3D interactions and elite aesthetic engineering.
         </motion.p>
       </motion.div>
-    </section>
+    </AuroraBackground>
   );
 }
