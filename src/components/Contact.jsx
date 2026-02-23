@@ -7,14 +7,14 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="relative flex min-h-screen min-w-full items-center justify-center overflow-y-hidden bg-black"
+      className="relative flex min-h-screen min-w-full items-center justify-center overflow-y-hidden bg-black font-space"
     >
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.6 }}
-        className="absolute left-[5%] top-[5%] md:left-[10%] md:top-[10%] z-0 pb-4 text-5xl md:text-7xl font-bold text-zinc-800"
+        className="absolute left-[5%] top-[5%] md:left-[10%] md:top-[10%] z-0 pb-4 text-6xl md:text-8xl font-black text-zinc-800/40 font-archivo tracking-tighter"
       >
         CONTACT
       </motion.h2>

@@ -31,8 +31,10 @@ function App() {
   });
 
   // Map the vertical scroll (0 to 1) to horizontal movement
-  // Using explicit vw units is much safer for 6 items. We translate exactly 5 viewport widths left.
-  const x = useTransform(scrollYProgress, [0, 1], ["0vw", "-500vw"]);
+  // Using explicit vw units is much safer for 6 items. 
+  // Each of the 5 transitions spans 105vw (100vw section + 5vw gap). 
+  // Translating from 0vw to -525vw perfectly aligns each section.
+  const x = useTransform(scrollYProgress, [0, 1], ["0vw", "-525vw"]);
 
   const scrollToSection = (id) => {
     // With this layout, "scrolling to a section" means changing the window's vertical scroll
@@ -70,32 +72,32 @@ function App() {
         />
 
         <div className="fixed top-0 left-0 w-full h-screen overflow-hidden">
-          {/* Framer motion container mapping Y to X, increased to 600vw */}
+          {/* Framer motion container mapping Y to X, increased to 625vw for gaps */}
           <motion.div
             style={{ x }}
-            className="flex h-screen w-[600vw]"
+            className="flex h-screen w-[625vw]"
           >
-            <div className="relative w-[100vw] h-full overflow-hidden">
+            <div className="relative w-[100vw] h-full overflow-hidden mr-[5vw]">
               <Hero />
             </div>
 
-            <div className="w-[100vw] h-full flex-shrink-0">
+            <div className="w-[100vw] h-full flex-shrink-0 overflow-hidden mr-[5vw]">
               <About />
             </div>
 
-            <div className="w-[100vw] h-full flex-shrink-0">
+            <div className="w-[100vw] h-full flex-shrink-0 overflow-hidden mr-[5vw]">
               <Services />
             </div>
 
-            <div className="w-[100vw] h-full flex-shrink-0">
+            <div className="w-[100vw] h-full flex-shrink-0 overflow-hidden mr-[5vw]">
               <Experience />
             </div>
 
-            <div className="w-[100vw] h-full flex-shrink-0">
+            <div className="w-[100vw] h-full flex-shrink-0 overflow-hidden mr-[5vw]">
               <Projects />
             </div>
 
-            <div className="w-[100vw] h-full flex-shrink-0">
+            <div className="w-[100vw] h-full flex-shrink-0 overflow-hidden">
               <Contact />
             </div>
           </motion.div>

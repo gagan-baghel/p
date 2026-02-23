@@ -9,6 +9,10 @@ module.exports = {
   content: ["./app/**/*.{js,jsx,ts,tsx}", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        space: ["var(--font-space)", "sans-serif"],
+        archivo: ["var(--font-archivo)", "sans-serif"],
+      },
       animation: {
         scroll:
           "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",

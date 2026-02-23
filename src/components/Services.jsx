@@ -21,7 +21,7 @@ const services = [
 
 export function Services() {
     return (
-        <section id="services" className="flex h-full w-full flex-col justify-center px-12 md:px-24">
+        <section id="services" className="flex h-full w-full flex-col justify-center px-12 md:px-24 font-space">
             <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -30,7 +30,7 @@ export function Services() {
                 className="mb-16"
             >
                 <h2 className="text-xl font-medium tracking-widest text-zinc-500 uppercase mb-2">Capabilities</h2>
-                <h3 className="text-5xl font-black text-white md:text-6xl tracking-tighter">My Core Services</h3>
+                <h3 className="text-5xl font-black text-white md:text-6xl tracking-tighter font-archivo">My Core Services</h3>
             </motion.div>
 
             <div className="flex gap-8 group">
@@ -55,7 +55,7 @@ function ServiceCard({ service }) {
     return (
         <div
             onMouseMove={handleMouseMove}
-            className="group/card relative flex h-96 w-96 flex-col justify-between rounded-xl border border-white/10 bg-zinc-900/50 p-8 hover:bg-zinc-900 overflow-hidden transition-colors duration-500 flex-shrink-0 backdrop-blur-sm"
+            className="group/card relative flex h-96 w-[28rem] flex-col justify-between rounded-2xl border border-white/10 bg-zinc-900/40 p-8 hover:bg-zinc-900/80 hover:-translate-y-2 overflow-hidden transition-all duration-500 flex-shrink-0 backdrop-blur-md shadow-2xl"
         >
             {/* Spotlight Hover Effect */}
             <motion.div
@@ -64,7 +64,7 @@ function ServiceCard({ service }) {
                     background: useMotionTemplate`
             radial-gradient(
               400px circle at ${mouseX}px ${mouseY}px,
-              rgba(255,255,255,0.1),
+              rgba(255,255,255,0.15),
               transparent 80%
             )
           `,
