@@ -1,9 +1,8 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { GiDoubleFaceMask } from "react-icons/gi";
 import { useScroll, useTransform, motion } from "framer-motion";
-import { ReactLenis } from "@studio-freight/react-lenis";
 import { About } from "./components/About";
 import { Contact } from "./components/Contact";
 import { Hero } from "./components/Hero";
@@ -11,6 +10,7 @@ import { Navbar } from "./components/Navbar/Navbar";
 import { Projects } from "./components/Projects";
 import { Services } from "./components/Services";
 import { Experience } from "./components/Experience";
+import { MobileFooter } from "./components/MobileFooter";
 
 const sections = [
   { id: "home", label: "Home" },
@@ -21,90 +21,131 @@ const sections = [
   { id: "contact", label: "Contact" },
 ];
 
+const MOBILE_MEDIA_QUERY = "(max-width: 1023px)";
+
 function App() {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isMobileViewport, setIsMobileViewport] = useState(false);
 
-  // Use Framer Motion's useScroll to get the vertical scroll position of the window
+  useEffect(() => {
+    const mediaQuery = window.matchMedia(MOBILE_MEDIA_QUERY);
+    const handleChange = (event) => {
+      setIsMobileViewport(event.matches);
+      setIsNavOpen(false);
+    };
+
+    setIsMobileViewport(mediaQuery.matches);
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
+
   const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-  });
+  const { scrollYProgress } = useScroll(
+    isMobileViewport ? undefined : { target: containerRef },
+  );
 
-  // Map the vertical scroll (0 to 1) to horizontal movement
-  // Using explicit vw units is much safer for 6 items. 
-  // Each of the 5 transitions spans 105vw (100vw section + 5vw gap). 
-  // Translating from 0vw to -525vw perfectly aligns each section.
   const x = useTransform(scrollYProgress, [0, 1], ["0vw", "-525vw"]);
 
   const scrollToSection = (id) => {
-    // With this layout, "scrolling to a section" means changing the window's vertical scroll
-    // to match the corresponding horizontal offset.
+    if (isMobileViewport) {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      setIsNavOpen(false);
+      return;
+    }
+
     const sectionIndex = sections.findIndex((s) => s.id === id);
     if (sectionIndex !== -1) {
-      // Calculation based on height. Window height represents 1 viewport. 
-      // Total scrollable height is `600vh`. 
-      const targetScroll = (sectionIndex / (sections.length - 1)) * (document.documentElement.scrollHeight - window.innerHeight);
+      const scrollableHeight =
+        (containerRef.current?.offsetHeight ??
+          document.documentElement.scrollHeight) - window.innerHeight;
+      const targetScroll =
+        (sectionIndex / (sections.length - 1)) * Math.max(scrollableHeight, 0);
       window.scrollTo({ top: targetScroll, behavior: "smooth" });
       setIsNavOpen(false);
     }
   };
 
-  return (
-    <ReactLenis root>
-      {/* We make the container tall enough (600vh) to allow native vertical scrolling */}
-      <div ref={containerRef} className="relative h-[600vh] bg-black">
+  const mobileLayout = (
+    <div className="w-full">
+      <section id="home" className="w-full">
+        <Hero onNavigate={scrollToSection} isMobile />
+      </section>
+      <About />
+      <Services />
+      <Experience />
+      <Projects />
+      <Contact />
+      <MobileFooter onNavigate={scrollToSection} />
+    </div>
+  );
 
-        {/* Fixed Navigation Button */}
+  const desktopLayout = (
+    <div ref={containerRef} className="relative h-[600vh] bg-black">
+      <div className="fixed left-0 top-0 h-screen w-full overflow-hidden">
+        <motion.div style={{ x }} className="flex h-screen w-[625vw]">
+          <section id="home" className="relative mr-[5vw] h-full w-[100vw] overflow-hidden">
+            <Hero onNavigate={scrollToSection} />
+          </section>
+
+          <div className="mr-[5vw] h-full w-[100vw] flex-shrink-0 overflow-hidden">
+            <About />
+          </div>
+
+          <div className="mr-[5vw] h-full w-[100vw] flex-shrink-0 overflow-hidden">
+            <Services />
+          </div>
+
+          <div className="mr-[5vw] h-full w-[100vw] flex-shrink-0 overflow-hidden">
+            <Experience />
+          </div>
+
+          <div className="mr-[5vw] h-full w-[100vw] flex-shrink-0 overflow-hidden">
+            <Projects />
+          </div>
+
+          <div className="h-full w-[100vw] flex-shrink-0 overflow-hidden">
+            <Contact />
+          </div>
+        </motion.div>
+      </div>
+    </div>
+  );
+
+  const appContent = (
+    <div className="relative bg-black">
+      <button
+        type="button"
+        onClick={() => setIsNavOpen((prev) => !prev)}
+        className="fixed left-4 top-4 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-zinc-600 bg-black/40 text-3xl text-white backdrop-blur md:left-8 md:top-8"
+        aria-label="Toggle navigation"
+      >
+        <GiDoubleFaceMask />
+      </button>
+
+      <Navbar
+        sections={sections}
+        isOpen={isNavOpen}
+        onClose={() => setIsNavOpen(false)}
+        onSelect={scrollToSection}
+      />
+
+      {isNavOpen && (
         <button
           type="button"
-          onClick={() => setIsNavOpen((prev) => !prev)}
-          className="fixed left-8 top-8 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-zinc-600 bg-black/40 text-3xl text-white backdrop-blur"
-          aria-label="Toggle navigation"
-        >
-          <GiDoubleFaceMask />
-        </button>
-
-        <Navbar
-          sections={sections}
-          isOpen={isNavOpen}
-          onClose={() => setIsNavOpen(false)}
-          onSelect={scrollToSection}
+          onClick={() => setIsNavOpen(false)}
+          className="fixed inset-0 z-30 bg-black/40 lg:hidden"
+          aria-label="Close navigation overlay"
         />
+      )}
 
-        <div className="fixed top-0 left-0 w-full h-screen overflow-hidden">
-          {/* Framer motion container mapping Y to X, increased to 625vw for gaps */}
-          <motion.div
-            style={{ x }}
-            className="flex h-screen w-[625vw]"
-          >
-            <div className="relative w-[100vw] h-full overflow-hidden mr-[5vw]">
-              <Hero />
-            </div>
-
-            <div className="w-[100vw] h-full flex-shrink-0 overflow-hidden mr-[5vw]">
-              <About />
-            </div>
-
-            <div className="w-[100vw] h-full flex-shrink-0 overflow-hidden mr-[5vw]">
-              <Services />
-            </div>
-
-            <div className="w-[100vw] h-full flex-shrink-0 overflow-hidden mr-[5vw]">
-              <Experience />
-            </div>
-
-            <div className="w-[100vw] h-full flex-shrink-0 overflow-hidden mr-[5vw]">
-              <Projects />
-            </div>
-
-            <div className="w-[100vw] h-full flex-shrink-0 overflow-hidden">
-              <Contact />
-            </div>
-          </motion.div>
-        </div>
-      </div>
-    </ReactLenis>
+      {isMobileViewport ? mobileLayout : desktopLayout}
+    </div>
   );
+
+  return appContent;
 }
 
 export default App;

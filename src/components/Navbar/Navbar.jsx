@@ -28,7 +28,7 @@ export function Navbar({ sections, isOpen, onClose, onSelect }) {
   return (
     <nav
       ref={navRef}
-      className="absolute z-40 flex h-screen w-full -translate-x-full flex-col items-center space-y-10 bg-black/65 py-[12%] font-bold backdrop-blur-md md:w-[40%]"
+      className="fixed left-0 top-0 z-40 flex h-screen w-[82%] -translate-x-full flex-col items-center space-y-8 bg-black/70 px-4 py-20 font-bold backdrop-blur-md sm:w-[65%] md:space-y-10 lg:w-[38%]"
       aria-label="Primary"
     >
       <button
@@ -45,7 +45,7 @@ export function Navbar({ sections, isOpen, onClose, onSelect }) {
           key={section.id}
           type="button"
           onClick={() => onSelect(section.id)}
-          className="nav-item text-4xl transition-colors hover:text-white"
+          className="nav-item text-3xl transition-colors hover:text-white md:text-4xl"
         >
           {section.label}
         </button>

@@ -4,10 +4,22 @@ export function Projects() {
   return (
     <section
       id="projects"
-      className="relative flex min-h-screen min-w-full w-full items-center justify-center overflow-hidden bg-black font-space"
+      className="relative w-full overflow-hidden bg-black px-6 py-20 font-space sm:px-10 lg:flex lg:min-h-screen lg:flex-col lg:justify-center lg:px-0 lg:py-0"
     >
-      <h2 className="absolute z-0 bottom-[10%] left-[5%] md:bottom-[15%] md:left-[10%] pb-4 text-7xl md:text-9xl font-black text-zinc-800/40 font-archivo tracking-tighter pointer-events-none select-none">PROJECTS</h2>
-      <div className="z-10 w-full h-full flex items-center">
+      <h2 className="pointer-events-none absolute bottom-6 left-[8%] z-0 hidden pb-4 font-archivo text-9xl font-black tracking-tighter text-zinc-800/35 select-none md:block">
+        PROJECTS
+      </h2>
+
+      <div className="z-10 mx-auto mb-10 w-full max-w-6xl lg:mb-12 lg:px-14">
+        <p className="mb-2 text-xs font-semibold tracking-[0.28em] text-zinc-400 uppercase">
+          Selected Work
+        </p>
+        <h3 className="font-archivo text-4xl font-black tracking-tight text-white sm:text-5xl">
+          Signature projects.
+        </h3>
+      </div>
+
+      <div className="z-10 flex h-full w-full items-center lg:px-2">
         <AllProjects />
       </div>
     </section>
