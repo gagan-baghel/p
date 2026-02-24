@@ -5,7 +5,9 @@ export function BentoGridItem({
   description = "Discover the beauty of highly engineered, functional architecture and deep visual aesthetic.",
   imgUrl = "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2000&auto=format&fit=crop",
   category = "Case Study",
-  year = "2025",
+  meta = "Project",
+  stack = "",
+  repoUrl = "#",
 }) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -51,7 +53,7 @@ export function BentoGridItem({
           <span className="rounded-full border border-white/20 bg-black/30 px-2.5 py-1 backdrop-blur-md">
             {category}
           </span>
-          <span className="text-zinc-300/85">{year}</span>
+          <span className="text-zinc-300/85">{meta}</span>
         </div>
 
         <h3 className="mb-2 text-2xl font-bold tracking-tight text-white drop-shadow-md sm:text-3xl">
@@ -60,12 +62,20 @@ export function BentoGridItem({
         <p className="line-clamp-3 text-sm leading-relaxed text-zinc-200 opacity-100 transition-opacity duration-500 lg:text-base lg:opacity-0 lg:group-hover:opacity-100">
           {description}
         </p>
+        <p className="mt-2 line-clamp-1 text-xs tracking-wide text-zinc-300/90">
+          {stack}
+        </p>
 
         <div className="mt-5 h-10 overflow-hidden opacity-100 transition-all duration-500 lg:mt-4 lg:h-0 lg:opacity-0 lg:group-hover:mt-6 lg:group-hover:h-12 lg:group-hover:opacity-100">
-          <button className="flex items-center space-x-2 border-b border-white/30 pb-1 text-sm font-semibold tracking-widest text-white uppercase transition-colors duration-300 hover:border-white">
-            <span>View Case Study</span>
+          <a
+            href={repoUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center space-x-2 border-b border-white/30 pb-1 text-sm font-semibold tracking-widest text-white uppercase transition-colors duration-300 hover:border-white"
+          >
+            <span>Open Repository</span>
             <span>→</span>
-          </button>
+          </a>
         </div>
       </div>
     </motion.article>

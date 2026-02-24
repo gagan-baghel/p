@@ -2,49 +2,301 @@ import { BentoGridItem } from "./card";
 
 const projects = [
   {
-    title: "The Art of Design",
+    title: "PostPersona",
     description:
-      "A high-contrast creative direction site where interaction and typography lead storytelling.",
+      "AI-powered social content generation platform with persona-driven writing and approval-first publishing workflow.",
     imgUrl:
-      "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2000&auto=format&fit=crop",
-    category: "Brand Experience",
-    year: "2025",
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2000&auto=format&fit=crop",
+    category: "AI SaaS Application",
+    meta: "Next.js 16",
+    stack: "Next.js 16, React 19, Convex, TypeScript, Gemini/Groq APIs",
+    repoUrl: "https://github.com/gagan-baghel/PostPersona",
   },
   {
-    title: "Velocity Commerce",
+    title: "EdTechPlatform",
     description:
-      "Premium ecommerce frontend focused on fast product discovery, motion-led UX, and conversion quality.",
+      "Full-stack e-learning platform with auth, payments, course management, and production-grade backend APIs.",
     imgUrl:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2000&auto=format&fit=crop",
-    category: "Ecommerce",
-    year: "2024",
+      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2000&auto=format&fit=crop",
+    category: "Full-Stack MERN Application",
+    meta: "MERN",
+    stack: "React (Vite), Node.js, Express, MongoDB, JWT, Razorpay, Cloudinary",
+    repoUrl: "https://github.com/gagan-baghel/EdTechPlatform",
   },
   {
-    title: "Studio Pulse",
+    title: "linkstore",
     description:
-      "A modular agency website with animated case transitions and maintainable content blocks.",
+      "Starter React + Vite project with minimal setup and foundational app structure.",
     imgUrl:
-      "https://images.unsplash.com/photo-1515378791036-0648a814c963?q=80&w=2000&auto=format&fit=crop",
-    category: "Agency Platform",
-    year: "2024",
+      "https://images.unsplash.com/photo-1605379399642-870262d3d051?q=80&w=2000&auto=format&fit=crop",
+    category: "Starter Template",
+    meta: "Vite",
+    stack: "React + Vite",
+    repoUrl: "https://github.com/gagan-baghel/linkstore",
   },
   {
-    title: "Insight Dashboard",
+    title: "ButtlerAI",
     description:
-      "Data product interface balancing dense analytics with clean hierarchy and strong readability.",
+      "Gemini-style AI assistant clone with chat UI, typing effects, image-to-text, and text-to-audio.",
     imgUrl:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop",
-    category: "SaaS Dashboard",
-    year: "2023",
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2000&auto=format&fit=crop",
+    category: "AI Chat Interface",
+    meta: "React",
+    stack: "React, JavaScript",
+    repoUrl: "https://github.com/gagan-baghel/ButtlerAI",
   },
   {
-    title: "Motion Identity",
+    title: "EMailManager",
     description:
-      "Interactive portfolio concept combining cinematic gradients, fluid motion, and bold type systems.",
+      "Email automation utility for filtering, mass emailing, and unwanted message handling.",
+    imgUrl:
+      "https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=2000&auto=format&fit=crop",
+    category: "Automation Utility",
+    meta: "Python/Node",
+    stack: "Python, Node.js",
+    repoUrl: "https://github.com/gagan-baghel/EMailManager",
+  },
+  {
+    title: "Consistency-Manager",
+    description:
+      "Productivity app for sprint and earnings tracking with analytics, CRUD APIs, and progress logic.",
+    imgUrl:
+      "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=2000&auto=format&fit=crop",
+    category: "Full-Stack Productivity App",
+    meta: "Next.js",
+    stack: "Next.js, MongoDB",
+    repoUrl: "https://github.com/gagan-baghel/Consistency-Manager",
+  },
+  {
+    title: "Supes",
+    description:
+      "Interactive brand prototype for a motorcycle company with advanced motion and storytelling flows.",
+    imgUrl:
+      "https://images.unsplash.com/photo-1517846693594-1567da72af75?q=80&w=2000&auto=format&fit=crop",
+    category: "Interactive Product Prototype",
+    meta: "TypeScript",
+    stack: "Next.js, TypeScript",
+    repoUrl: "https://github.com/gagan-baghel/Supes",
+  },
+  {
+    title: "HorizontalPortfolio",
+    description:
+      "Horizontally scrolling portfolio with animation-driven UX and modular architecture.",
+    imgUrl:
+      "https://images.unsplash.com/photo-1526498460520-4c246339dccb?q=80&w=2000&auto=format&fit=crop",
+    category: "Advanced Portfolio System",
+    meta: "GSAP + Motion",
+    stack: "Next.js, React, Tailwind CSS, GSAP, Framer Motion",
+    repoUrl: "https://github.com/gagan-baghel/HorizontalPortfolio",
+  },
+  {
+    title: "TelegramIOT-BOT-Python",
+    description:
+      "Telegram bot integrated with ultrasonic sensor hardware and embedded IoT programming.",
+    imgUrl:
+      "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?q=80&w=2000&auto=format&fit=crop",
+    category: "IoT + Bot Integration",
+    meta: "Python + ESP",
+    stack: "Python, ESP Microcontroller",
+    repoUrl: "https://github.com/gagan-baghel/TelegramIOT-BOT-Python",
+  },
+  {
+    title: "MERN",
+    description:
+      "AI image generation interface built using MERN principles with backend-ready architecture.",
+    imgUrl:
+      "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=2000&auto=format&fit=crop",
+    category: "MERN Application",
+    meta: "AI Images",
+    stack: "React, Node (Partial), MongoDB",
+    repoUrl: "https://github.com/gagan-baghel/MERN",
+  },
+  {
+    title: "React-Redux",
+    description:
+      "Collection of React applications demonstrating Redux state management and scalable store architecture.",
+    imgUrl:
+      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?q=80&w=2000&auto=format&fit=crop",
+    category: "State Management Projects",
+    meta: "Redux",
+    stack: "React, Redux",
+    repoUrl: "https://github.com/gagan-baghel/React-Redux",
+  },
+  {
+    title: "LawFirm",
+    description:
+      "Responsive multi-page React template with structured routing and EmailJS contact integration.",
+    imgUrl:
+      "https://images.unsplash.com/photo-1528747008803-2d9f0f4f6f1c?q=80&w=2000&auto=format&fit=crop",
+    category: "React Multi-page Template",
+    meta: "Template",
+    stack: "React, JavaScript",
+    repoUrl: "https://github.com/gagan-baghel/LawFirm",
+  },
+  {
+    title: "React",
+    description:
+      "Practice repository with reusable React component architecture across varied mini applications.",
+    imgUrl:
+      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=2000&auto=format&fit=crop",
+    category: "React Practice Projects",
+    meta: "Practice",
+    stack: "React, Bootstrap",
+    repoUrl: "https://github.com/gagan-baghel/React",
+  },
+  {
+    title: "gagan_baghel_Portfolio",
+    description:
+      "Personal Next.js portfolio with App Router, project highlights, and structured animation sections.",
+    imgUrl:
+      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2000&auto=format&fit=crop",
+    category: "Portfolio Website",
+    meta: "Next.js",
+    stack: "Next.js",
+    repoUrl: "https://github.com/gagan-baghel/gagan_baghel_Portfolio",
+  },
+  {
+    title: "vzallsites",
+    description:
+      "Collection of themed websites with animation, sliders, PWA frontend, and responsive experiments.",
+    imgUrl:
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2000&auto=format&fit=crop",
+    category: "Multi-Website Templates",
+    meta: "UI Collection",
+    stack: "HTML, CSS, JS, React (Chakra UI), Swiper, ScrollReveal",
+    repoUrl: "https://github.com/gagan-baghel/vzallsites",
+  },
+  {
+    title: "SpotifyClone_frontend",
+    description:
+      "Complex static Spotify UI clone with playlist rendering logic and interactive media components.",
+    imgUrl:
+      "https://images.unsplash.com/photo-1614680376408-81e91ffe3db7?q=80&w=2000&auto=format&fit=crop",
+    category: "Complex Static Web App",
+    meta: "Vanilla JS",
+    stack: "HTML, CSS, JavaScript",
+    repoUrl: "https://github.com/gagan-baghel/SpotifyClone_frontend",
+  },
+  {
+    title: "restaurant",
+    description:
+      "Responsive restaurant landing website with structured sections and multi-page navigation.",
+    imgUrl:
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2000&auto=format&fit=crop",
+    category: "Static Multi-page Website",
+    meta: "Restaurant",
+    stack: "HTML, CSS, JavaScript",
+    repoUrl: "https://github.com/gagan-baghel/restaurant",
+  },
+  {
+    title: "dental-website",
+    description:
+      "Informational business website for a dental clinic with responsive layout patterns.",
+    imgUrl:
+      "https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2000&auto=format&fit=crop",
+    category: "Static Business Website",
+    meta: "Dental",
+    stack: "HTML, CSS, JavaScript",
+    repoUrl: "https://github.com/gagan-baghel/dental-website",
+  },
+  {
+    title: "Websites_Prototype",
+    description:
+      "Experimental prototype collection including landing pages, parallax layouts, and product concepts.",
+    imgUrl:
+      "https://images.unsplash.com/photo-1484417894907-623942c8ee29?q=80&w=2000&auto=format&fit=crop",
+    category: "Website Prototype Collection",
+    meta: "Prototypes",
+    stack: "HTML, CSS, JavaScript",
+    repoUrl: "https://github.com/gagan-baghel/Websites_Prototype",
+  },
+  {
+    title: "startingwithbootstrap",
+    description:
+      "Bootstrap-based templates covering landing pages, blog layouts, and responsive blocks.",
+    imgUrl:
+      "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=2000&auto=format&fit=crop",
+    category: "Bootstrap Templates",
+    meta: "Bootstrap",
+    stack: "HTML, CSS, Bootstrap",
+    repoUrl: "https://github.com/gagan-baghel/startingwithbootstrap",
+  },
+  {
+    title: "frontendPractice",
+    description:
+      "Frontend layout practice repository focused on CSS fundamentals and Bootstrap UI structure.",
+    imgUrl:
+      "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=2000&auto=format&fit=crop",
+    category: "Frontend Practice Projects",
+    meta: "UI Practice",
+    stack: "HTML, CSS, Bootstrap",
+    repoUrl: "https://github.com/gagan-baghel/frontendPractice",
+  },
+  {
+    title: "TailwindComponents",
+    description:
+      "Repository intended for reusable Tailwind UI components and design snippets.",
+    imgUrl:
+      "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=2000&auto=format&fit=crop",
+    category: "UI Components",
+    meta: "Inactive",
+    stack: "Tailwind CSS",
+    repoUrl: "https://github.com/gagan-baghel/TailwindComponents",
+  },
+  {
+    title: "DesignPatterns",
+    description:
+      "Classical software design pattern implementations demonstrating object-oriented architecture principles.",
+    imgUrl:
+      "https://images.unsplash.com/photo-1518773553398-650c184e0bb3?q=80&w=2000&auto=format&fit=crop",
+    category: "Software Architecture Concepts",
+    meta: "Patterns",
+    stack: "Java, C++",
+    repoUrl: "https://github.com/gagan-baghel/DesignPatterns",
+  },
+  {
+    title: "CodeBaseOfC_PlusPlus",
+    description:
+      "Collection of C++ programs and exercises focused on core logic, problem solving, and fundamentals.",
     imgUrl:
       "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=2000&auto=format&fit=crop",
-    category: "Portfolio",
-    year: "2023",
+    category: "Programming Practice",
+    meta: "C++",
+    stack: "C++",
+    repoUrl: "https://github.com/gagan-baghel/CodeBaseOfC_PlusPlus",
+  },
+  {
+    title: "Javascript",
+    description:
+      "JavaScript mini-projects collection including clock, calculator, quiz, games, and to-do apps.",
+    imgUrl:
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2000&auto=format&fit=crop",
+    category: "JavaScript Mini Projects",
+    meta: "Mini Apps",
+    stack: "HTML, CSS, JavaScript",
+    repoUrl: "https://github.com/gagan-baghel/Javascript",
+  },
+  {
+    title: "JS_Basics",
+    description:
+      "Core JavaScript fundamentals repository covering language basics and DOM-oriented learning.",
+    imgUrl:
+      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=2000&auto=format&fit=crop",
+    category: "JavaScript Fundamentals",
+    meta: "Fundamentals",
+    stack: "JavaScript",
+    repoUrl: "https://github.com/gagan-baghel/JS_Basics",
+  },
+  {
+    title: "gagan-baghel",
+    description:
+      "Profile README repository summarizing developer skills, highlights, and experience at a glance.",
+    imgUrl:
+      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2000&auto=format&fit=crop",
+    category: "Profile README Repository",
+    meta: "Markdown",
+    stack: "Markdown",
+    repoUrl: "https://github.com/gagan-baghel/gagan-baghel",
   },
 ];
 
@@ -53,7 +305,7 @@ export function AllProjects() {
     <div className="flex h-full w-full flex-col gap-6 px-0 sm:gap-7 lg:flex-row lg:items-center lg:justify-start lg:gap-10 lg:px-12 lg:overflow-x-auto lg:snap-x lg:snap-mandatory lg:cursor-grab lg:active:cursor-grabbing lg:no-scrollbar">
       {projects.map((project) => (
         <div
-          key={`${project.title}-${project.year}`}
+          key={project.title}
           className="mx-auto w-full max-w-xl lg:mx-0 lg:w-[430px] lg:max-w-none lg:flex-shrink-0 lg:snap-center xl:w-[500px]"
         >
           <BentoGridItem {...project} />
