@@ -108,13 +108,13 @@ export function Experience() {
 
       <div className="hidden w-full overflow-x-auto pb-10 no-scrollbar lg:block">
         <div className="relative flex min-w-max items-center pr-24">
-          <div className="absolute left-0 top-[20px] h-[1px] w-full bg-white/10" />
+          <div className="absolute left-0 top-5 h-px w-full -translate-y-1/2 bg-white/10" />
           <motion.div
             initial={{ width: "0%" }}
             whileInView={{ width: "100%" }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
-            className="absolute left-0 top-[19px] h-[3px] w-full bg-gradient-to-r from-zinc-600 via-zinc-300 to-transparent shadow-[0_0_20px_rgba(255,255,255,0.8)]"
+            className="absolute left-0 top-5 h-[3px] w-full -translate-y-1/2 bg-gradient-to-r from-zinc-600 via-zinc-300 to-transparent shadow-[0_0_20px_rgba(255,255,255,0.8)]"
           />
 
           <div className="relative z-10 flex gap-12 md:gap-20 lg:gap-32">
@@ -127,7 +127,7 @@ export function Experience() {
                 transition={{ duration: 0.6, delay: idx * 0.2 }}
                 className="group relative flex w-[300px] flex-shrink-0 flex-col items-start pt-16 md:w-[380px]"
               >
-                <div className="absolute left-0 top-[16px] h-4 w-4 rounded-full border-2 border-zinc-500 bg-black transition-all duration-300 group-hover:border-white group-hover:shadow-[0_0_10px_rgba(255,255,255,0.5)]" />
+                <div className="absolute left-0 top-5 h-4 w-4 -translate-y-1/2 rounded-full border-2 border-zinc-500 bg-black transition-all duration-300 group-hover:border-white group-hover:shadow-[0_0_10px_rgba(255,255,255,0.5)]" />
                 <div className="ml-2 mt-4 border-l border-white/10 pl-6 transition-colors duration-300 group-hover:border-white/30">
                   <span className="mb-3 block font-archivo text-4xl font-black tracking-tighter text-white select-none md:text-6xl">
                     {milestone.year}

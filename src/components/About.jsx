@@ -54,10 +54,10 @@ export function About() {
         <div className="mt-8 grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:gap-10">
           <div>
             <p className="mb-6 text-base font-light leading-relaxed text-zinc-200 sm:text-lg">
-              I am a self-learning and disciplined developer focused on creating high-impact products, not just pretty screens. My process combines UX clarity, system thinking, and production-ready frontend architecture.
+              I build digital systems with intent. Every interface is structured, deliberate, and engineered to scale — not just designed to impress. My work sits at the intersection of visual precision and production-grade frontend architecture.
             </p>
             <p className="text-base font-light leading-relaxed text-zinc-300 sm:text-lg">
-              From motion choreography to component-level performance optimization, I design experiences that feel cinematic and still load fast, scale cleanly, and remain maintainable.
+              From motion choreography to performance budgets, I obsess over details that most people ignore. The result: products that feel premium, load fast, and stay maintainable long after launch.
             </p>
 
             <div className="mt-7 flex flex-wrap gap-2.5">
